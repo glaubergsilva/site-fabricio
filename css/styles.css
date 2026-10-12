@@ -187,16 +187,14 @@ ul { list-style: none; }
   align-items: center;
   justify-content: center;
 }
-.hero-icone-fundo {
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #1A4A82, var(--azul-escuro));
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--sombra);
+.hero-foto {
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 18px 40px rgba(15, 45, 82, 0.18);
 }
 
 /* =========================================================================
@@ -241,21 +239,20 @@ ul { list-style: none; }
   border: 1px solid var(--borda);
   border-radius: var(--raio);
   padding: 28px 22px;
+  overflow: hidden;
   text-align: left;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .card:hover { transform: translateY(-4px); box-shadow: var(--sombra); }
 
-.card-icone {
-  width: 52px;
-  height: 52px;
-  border-radius: 12px;
-  background: #FFF1E6;
-  color: var(--laranja-escuro);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 16px;
+.card-foto {
+  display: block;
+  width: calc(100% + 44px);
+  max-width: none;
+  margin: -28px -22px 18px;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
 }
 
 .card h3 { font-size: 1.05rem; margin-bottom: 8px; color: var(--azul-escuro); }
