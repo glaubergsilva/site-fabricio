@@ -1,0 +1,393 @@
+/* =========================================================================
+   VARIÁVEIS E BASE
+   ========================================================================= */
+:root {
+  --azul-escuro: #0F2D52;
+  --azul: #14406E;
+  --laranja: #FF7A1A;
+  --laranja-escuro: #E8650A;
+  --whatsapp: #25D366;
+  --whatsapp-escuro: #1EBE5A;
+  --fundo: #F7F9FC;
+  --fundo-alt: #FFFFFF;
+  --texto: #1B1F27;
+  --texto-suave: #4A5568;
+  --borda: #E2E8F0;
+  --fonte-titulo: 'Poppins', sans-serif;
+  --fonte-texto: 'Inter', sans-serif;
+  --raio: 12px;
+  --sombra: 0 8px 24px rgba(15, 45, 82, 0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--fonte-texto);
+  color: var(--texto);
+  background: var(--fundo);
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1, h2, h3 { font-family: var(--fonte-titulo); line-height: 1.25; }
+
+a { text-decoration: none; color: inherit; }
+
+ul { list-style: none; }
+
+/* =========================================================================
+   BOTÕES
+   ========================================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); }
+
+.btn-whatsapp {
+  background: var(--whatsapp);
+  color: #fff;
+}
+.btn-whatsapp:hover { background: var(--whatsapp-escuro); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--azul-escuro);
+  border-color: var(--azul-escuro);
+}
+.btn-outline:hover { background: var(--azul-escuro); color: #fff; }
+
+.btn-outline-claro {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255,255,255,0.6);
+}
+.btn-outline-claro:hover { background: rgba(255,255,255,0.15); }
+
+.btn-grande { padding: 14px 26px; font-size: 1rem; }
+
+.btn-header { display: none; }
+@media (min-width: 860px) {
+  .btn-header { display: inline-flex; }
+}
+
+/* =========================================================================
+   WHATSAPP FLUTUANTE
+   ========================================================================= */
+.whatsapp-flutuante {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--whatsapp);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+  z-index: 999;
+  transition: transform 0.15s ease;
+}
+.whatsapp-flutuante:hover { transform: scale(1.08); }
+
+/* =========================================================================
+   CABEÇALHO
+   ========================================================================= */
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--borda);
+}
+.cabecalho-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.logo {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--azul-escuro);
+}
+.nav-desktop { display: none; gap: 28px; }
+.nav-desktop a {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--texto-suave);
+}
+.nav-desktop a:hover { color: var(--azul-escuro); }
+@media (min-width: 860px) {
+  .nav-desktop { display: flex; }
+}
+
+/* =========================================================================
+   HERO
+   ========================================================================= */
+.hero {
+  padding: 56px 0 64px;
+  background: linear-gradient(180deg, #EEF3FA 0%, var(--fundo) 100%);
+}
+.hero-grid {
+  display: grid;
+  gap: 40px;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .hero-grid { grid-template-columns: 1.1fr 0.9fr; }
+}
+
+.badge {
+  display: inline-block;
+  background: #E7EEF8;
+  color: var(--azul-escuro);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  color: var(--azul-escuro);
+  margin-bottom: 16px;
+}
+
+.hero-sub {
+  color: var(--texto-suave);
+  font-size: 1.05rem;
+  max-width: 46ch;
+  margin-bottom: 28px;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.hero-trust {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--texto-suave);
+  font-size: 0.92rem;
+}
+
+.hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-icone-fundo {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #1A4A82, var(--azul-escuro));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--sombra);
+}
+
+/* =========================================================================
+   SEÇÕES GERAIS
+   ========================================================================= */
+.secao { padding: 64px 0; }
+.secao-alt { background: var(--fundo-alt); }
+
+.titulo-secao {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--azul-escuro);
+  text-align: center;
+  margin-bottom: 10px;
+}
+.titulo-secao-esquerda { text-align: left; }
+
+.subtitulo-secao {
+  text-align: center;
+  color: var(--texto-suave);
+  max-width: 56ch;
+  margin: 0 auto 40px;
+}
+
+/* =========================================================================
+   CARDS DE SERVIÇOS
+   ========================================================================= */
+.grid-cards {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .grid-cards { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1000px) {
+  .grid-cards { grid-template-columns: repeat(4, 1fr); }
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 28px 22px;
+  text-align: left;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--sombra); }
+
+.card-icone {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: #FFF1E6;
+  color: var(--laranja-escuro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.card h3 { font-size: 1.05rem; margin-bottom: 8px; color: var(--azul-escuro); }
+.card p { color: var(--texto-suave); font-size: 0.93rem; }
+
+/* =========================================================================
+   DIFERENCIAIS
+   ========================================================================= */
+.grid-diferenciais {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 1fr;
+  text-align: center;
+}
+@media (min-width: 640px) {
+  .grid-diferenciais { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1000px) {
+  .grid-diferenciais { grid-template-columns: repeat(4, 1fr); }
+}
+.diferencial-icone { font-size: 2rem; display: block; margin-bottom: 10px; }
+.diferencial h3 { font-size: 1rem; margin-bottom: 6px; color: var(--azul-escuro); }
+.diferencial p { color: var(--texto-suave); font-size: 0.9rem; }
+
+/* =========================================================================
+   EMPRESAS ATENDIDAS (placeholder)
+   ========================================================================= */
+.grid-logos {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 640px) {
+  .grid-logos { grid-template-columns: repeat(4, 1fr); }
+}
+.logo-placeholder {
+  height: 90px;
+  border: 2px dashed var(--borda);
+  border-radius: var(--raio);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #A0AEC0;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 10px;
+}
+
+/* =========================================================================
+   SOBRE
+   ========================================================================= */
+.sobre-grid {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+}
+@media (min-width: 780px) {
+  .sobre-grid { grid-template-columns: 220px 1fr; }
+}
+.foto-placeholder {
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 1;
+  border-radius: var(--raio);
+  background: #E7EEF8;
+  color: var(--azul);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.sobre-texto p { color: var(--texto-suave); margin-bottom: 20px; }
+.sobre-lista { display: flex; flex-direction: column; gap: 10px; color: var(--texto-suave); }
+
+/* =========================================================================
+   CONTATO
+   ========================================================================= */
+.secao-contato {
+  background: linear-gradient(135deg, var(--azul-escuro), #1A4A82);
+  color: #fff;
+  text-align: center;
+}
+.contato-inner { display: flex; flex-direction: column; align-items: center; }
+.titulo-claro { color: #fff; }
+.subtitulo-claro { color: rgba(255,255,255,0.85); }
+.contato-ctas { justify-content: center; margin-bottom: 20px; }
+.link-instagram {
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  padding-bottom: 2px;
+}
+.link-instagram:hover { color: #fff; }
+
+/* =========================================================================
+   RODAPÉ
+   ========================================================================= */
+.rodape {
+  background: #0B2138;
+  color: rgba(255,255,255,0.7);
+  padding: 24px 0;
+  font-size: 0.85rem;
+}
+.rodape-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  text-align: center;
+}
+@media (min-width: 640px) {
+  .rodape-inner { flex-direction: row; justify-content: space-between; text-align: left; }
+}
+.rodape-credito { opacity: 0.7; }
